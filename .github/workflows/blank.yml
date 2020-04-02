@@ -40,7 +40,7 @@ jobs:
           git config --local user.email "test_gh@github.com"
           git config --local user.name "GitHub Action test"
           git add ./src
-          git commit -m "Auto publish with data from azrafe7/hxOrderedMap"
+          git commit -m "Auto publish with data from azrafe7/hxOrderedMap" || echo "Nothing to update"
           git status
 
     # Push changes to repo (using Github Action by @ad-m)
