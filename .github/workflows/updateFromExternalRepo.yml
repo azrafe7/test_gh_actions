@@ -53,6 +53,11 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         #force: true
 
+    # Run custom script
+    - name: Run script
+      run: 
+        ./csv2db_pcm-dpc-covid19-ita.sh
+
     # Run git status again (without specifying "name" this time - as it's not mandatory)
     - run:
           git status
