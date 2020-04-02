@@ -40,7 +40,11 @@ jobs:
           cp -r cloned_repo/src src
           git config --local user.email "test_gh@github.com"
           git config --local user.name "GitHub Action test"
-          git add src
+          git add ./src
           git commit -m "Automatic publish from github.com/prject"
           git status
-          #git push target master
+    - name: Push changes # push changes to repo
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        #force: true
