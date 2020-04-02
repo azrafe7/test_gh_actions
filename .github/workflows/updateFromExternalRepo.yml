@@ -53,6 +53,12 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         #force: true
 
+    # Install custom script's dependencies
+    - name: Install custom script's dependencies
+      run: |
+        sudo apt-get install sqlite3
+        sudo pip install csvkit
+
     # Run custom script
     - name: Run script
       run:
