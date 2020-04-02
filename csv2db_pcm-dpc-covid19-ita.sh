@@ -177,6 +177,7 @@ if $DEBUG ; then echo "Datas inserted!" ; fi
 # END
 
 ## Print before exit
+ls $BASE_DIR
 echo
 echo "All operations have been finish. Exit!"
 echo
