@@ -38,6 +38,8 @@ jobs:
           git clone https://github.com/azrafe7/hxOrderedMap cloned_repo
           rm -rf src
           cp -r cloned_repo/src src
+          git config --local user.email "test_gh@github.com"
+          git config --local user.name "GitHub Action test"
           git add src
           git commit -m "Automatic publish from github.com/prject"
           git status
