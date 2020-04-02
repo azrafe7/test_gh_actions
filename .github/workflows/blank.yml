@@ -13,7 +13,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  # This workflow contains a single job called "build" (this is a name, can be changed, and will appear in the Github Actions dashboard)
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -21,9 +21,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    # This makes it possible to work "locally" with the files of your repo
     - uses: actions/checkout@v2
 
-    # Delete old folder
+    # Delete old folder (as we will "try" to update it from files from the external repo)
     - name: Delete to-be-replaced folder
       run:
           rm -rf src
@@ -34,12 +35,13 @@ jobs:
           git clone https://github.com/azrafe7/hxOrderedMap cloned_repo
           cp -r cloned_repo/src src
 
-    # Setup git user details (REQUIRED) and git add the copied files
+    # Setup git user details (REQUIRED) and git-add the copied files
     - name: Clone external repo and copy files over
       run: |
           git config --local user.email "test_gh@github.com"
           git config --local user.name "GitHub Action test"
           git add ./src
+          # don't error out if there's nothing to update (https://github.com/ad-m/github-push-action/issues/33)
           git commit -m "Auto publish with data from azrafe7/hxOrderedMap" || echo "Nothing to update"
           git status
 
@@ -50,6 +52,6 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         #force: true
 
-    # Run git status again (without specifying "name")
+    # Run git status again (without specifying "name" this time - as it's not mandatory)
     - run:
           git status
