@@ -24,6 +24,10 @@ jobs:
     # This makes it possible to work "locally" with the files of your repo
     - uses: actions/checkout@v2
 
+    # Run main.py
+    - run:
+        python ./main.py
+
     # Delete old folder (as we will "try" to update it from files from the external repo)
     - name: Delete to-be-replaced folder
       run:
@@ -63,6 +67,7 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         #force: true
+
     # Run git status again (without specifying "name" this time - as it's not mandatory)
     - run:
           git status
