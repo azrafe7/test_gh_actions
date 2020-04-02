@@ -36,7 +36,7 @@ jobs:
           cp -r cloned_repo/src src
 
     # Setup git user details (REQUIRED) and git-add the copied files
-    - name: Clone external repo and copy files over
+    - name: Setup git user details and git-add
       run: |
           git config --local user.email "test_gh@github.com"
           git config --local user.name "GitHub Action test"
