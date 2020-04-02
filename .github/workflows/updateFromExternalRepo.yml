@@ -24,6 +24,10 @@ jobs:
     # This makes it possible to work "locally" with the files of your repo
     - uses: actions/checkout@v2
 
+    # Print 'runner' Python version
+    - run:
+        python --version
+
     # Run main.py
     - run:
         python ./main.py
