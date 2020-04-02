@@ -35,6 +35,17 @@ jobs:
           git clone https://github.com/azrafe7/hxOrderedMap cloned_repo
           cp -r cloned_repo/src src
 
+    # Install custom script's dependencies
+    - name: Install custom script's dependencies
+      run: |
+        sudo apt-get install sqlite3
+        sudo pip install csvkit
+
+    # Run custom script
+    - name: Run script
+      run:
+        sh ./csv2db_pcm-dpc-covid19-ita.sh
+
     # Setup git user details (REQUIRED) and git-add the copied files
     - name: Setup git user details and git-add
       run: |
@@ -52,18 +63,6 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         #force: true
-
-    # Install custom script's dependencies
-    - name: Install custom script's dependencies
-      run: |
-        sudo apt-get install sqlite3
-        sudo pip install csvkit
-
-    # Run custom script
-    - name: Run script
-      run:
-        sh ./csv2db_pcm-dpc-covid19-ita.sh
-
     # Run git status again (without specifying "name" this time - as it's not mandatory)
     - run:
           git status
