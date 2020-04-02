@@ -37,7 +37,7 @@ jobs:
       run: |
           git clone https://github.com/azrafe7/hxOrderedMap cloned_repo
           rm -rf src
-          cp cloned_repo/src src
+          cp -r cloned_repo/src src
           git add src
           git commit -m "Automatic publish from github.com/prject"
           git status
