@@ -43,7 +43,7 @@ jobs:
           git add ./src
           # don't error out if there's nothing to update (https://github.com/ad-m/github-push-action/issues/33)
           # commit changes or print green message if there's nothing to update
-          git commit -m "Auto publish with data from azrafe7/hxOrderedMap" || echo -e "\033[32m\n  [CUSTOM] Nothing to update\n\033[0m"
+          git commit -m "Auto publish with data from azrafe7/hxOrderedMap" || echo -e "\033[32m\n[CUSTOM] Nothing to update\n\033[0m"
           git status
 
     # Push changes to repo (using Github Action by @ad-m)
