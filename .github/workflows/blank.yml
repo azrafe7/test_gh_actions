@@ -36,8 +36,8 @@ jobs:
     - name: Clone external repo and copy files
       run: |
           git clone https://github.com/azrafe7/hxOrderedMap cloned_repo
-          rm src
-          copy cloned_repo/src src
+          rm -rf src
+          cp cloned_repo/src src
           git add src
           git commit -m "Automatic publish from github.com/prject"
           git status
