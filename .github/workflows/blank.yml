@@ -33,7 +33,7 @@ jobs:
         echo test, and deploy your project.
 
     # adapted from https://stackoverflow.com/questions/59408320/github-action-to-copy-a-file-from-one-repo-to-another
-    - name Clone external repo and copy files
+    - name: Clone external repo and copy files
       run: |
           git clone https://github.com/azrafe7/hxOrderedMap cloned_repo
           rm src
